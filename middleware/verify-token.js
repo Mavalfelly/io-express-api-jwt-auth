@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 function verifyToken(req, res, next) {
     try {
-        const token = req.headers.authorization.split(' ')[1];
+        const token = req.headers.authorization.split(' ')[1]; //"Bearer ey12312412" -> ["Bearer", "ey12312412" ] -> "ey12312412"
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         // Assign decoded payload to req.user
         req.user = decoded;
